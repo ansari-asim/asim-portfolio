@@ -108,6 +108,12 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* Reserve space for the brand block so live typing doesn't shift nav links */
+.brand-block {
+  flex: 0 0 420px;
+  min-width: 200px;
+}
 /* ===================== */
 /* MAIN CONTAINER */
 /* ===================== */
@@ -220,9 +226,36 @@ body {
     font-size: 16px;
   }
 
+  /* Switch navbar to stacked layout on small screens to avoid shifting */
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    padding: 12px 6%;
+  }
+
+  .brand-block {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+  }
+
   .brand-role {
     font-size: 11px;
-    max-width: 180px;
+    max-width: none;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 12px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+    gap: 18px;
+    flex-wrap: wrap;
   }
 }
