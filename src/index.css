@@ -99,8 +99,13 @@ body {
 }
 
 .hamburger:hover {
-  color: white;
+  color: #00f; /* blue hover state */
   transform: scale(1.2);
+}
+
+/* flipped when sidebar is open */
+.hamburger.flip {
+  transform: rotateY(180deg) scale(1.0);
 }
 
 /* ===================== */
@@ -113,7 +118,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  /* keep element to capture outside clicks but make it transparent */
+  background: transparent;
   z-index: 998;
   display: none;
 }
@@ -121,12 +127,13 @@ body {
 .mobile-sidebar {
   position: fixed;
   top: 90px;
-  left: 0;
+  /* slide in from the right on mobile now */
+  right: 0;
   width: 250px;
   height: calc(100vh - 90px);
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
-  border-right: 1px solid rgba(144, 238, 144, 0.2);
+  border-left: 1px solid rgba(144, 238, 144, 0.2); /* border on the left because sidebar is on right */
   display: none;
   flex-direction: column;
   z-index: 999;
@@ -208,7 +215,8 @@ body {
 
 .about-card {
   display: inline-block;
-  padding: 50px 60px;
+  /* more space around larger image */
+  padding: 60px 70px;
   border-radius: 20px;
   text-align: center;
   background: rgba(255,255,255,0.05);
@@ -219,8 +227,8 @@ body {
 }
 
 .profile-img {
-  width: 180px;
-  height: 180px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   border: 2px solid #90ee90;
   margin-bottom: 20px;
@@ -283,6 +291,35 @@ body {
 /* RESPONSIVE */
 /* ===================== */
 
+/* sliding animation for sidebar items */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInSidebar {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* stagger kid animation via nth-child selectors */
+.mobile-sidebar .sidebar-item {
+  opacity: 0;
+  animation: slideInRight 0.3s forwards;
+}
+.mobile-sidebar .sidebar-item:nth-child(1) { animation-delay: 0.05s; }
+.mobile-sidebar .sidebar-item:nth-child(2) { animation-delay: 0.1s; }
+.mobile-sidebar .sidebar-item:nth-child(3) { animation-delay: 0.15s; }
+.mobile-sidebar .sidebar-item:nth-child(4) { animation-delay: 0.2s; }
+.mobile-sidebar .sidebar-item:nth-child(5) { animation-delay: 0.25s; }
+
+
 @media (max-width: 768px) {
 
   .main-container {
@@ -317,6 +354,7 @@ body {
 
   .mobile-sidebar {
     display: flex;
+    animation: fadeInSidebar 0.3s ease-out;
   }
 
   /* ADJUST NAVBAR FOR MOBILE */

@@ -81,7 +81,11 @@ function Navbar() {
         </div>
 
         {/* HAMBURGER MENU FOR MOBILE */}
-        <button className="hamburger" onClick={toggleSidebar}>
+        <button
+          className={`hamburger ${sidebarOpen ? 'flip' : ''}`}
+          onClick={toggleSidebar}
+          aria-label="open navigation menu"
+        >
           &gt;
         </button>
       </nav>
