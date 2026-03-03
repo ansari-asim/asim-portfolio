@@ -85,20 +85,22 @@ body {
 
 .hamburger {
   display: none;
-  flex-direction: column;
   background: none;
   border: none;
   cursor: pointer;
-  gap: 6px;
+  color: #90ee90;
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
   z-index: 1001;
+  transition: 0.3s ease;
 }
 
-.hamburger span {
-  width: 28px;
-  height: 3px;
-  background: #90ee90;
-  border-radius: 2px;
-  transition: 0.3s ease;
+.hamburger:hover {
+  color: white;
+  transform: scale(1.2);
 }
 
 /* ===================== */
@@ -328,10 +330,11 @@ body {
 
   .brand-block {
     flex: 1;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     min-width: 0;
+    gap: 4px;
   }
 
   .brand-name {
@@ -340,11 +343,11 @@ body {
   }
 
   .brand-role {
-    font-size: 10px;
-    max-width: 120px;
+    font-size: 11px;
+    max-width: 180px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-left: 8px;
+    margin-left: 0;
   }
 }

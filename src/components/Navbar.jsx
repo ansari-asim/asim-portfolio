@@ -82,9 +82,7 @@ function Navbar() {
 
         {/* HAMBURGER MENU FOR MOBILE */}
         <button className="hamburger" onClick={toggleSidebar}>
-          <span></span>
-          <span></span>
-          <span></span>
+          &gt;
         </button>
       </nav>
 
