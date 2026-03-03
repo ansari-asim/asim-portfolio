@@ -9,7 +9,7 @@ function About() {
       transition={{ type: "spring", stiffness: 120, damping: 18 }}
     >
       <img
-        src="/profile.jpg"
+        src={import.meta.env.BASE_URL + 'profile.jpg'}
         alt="Asim Ansari"
         className="profile-img"
       />
@@ -28,7 +28,7 @@ function About() {
         />
       </motion.div>
 
-      <a href="/resume.pdf" target="_blank">
+      <a href={import.meta.env.BASE_URL + 'resume.pdf'} target="_blank">
         <button className="resume-btn">Resume</button>
       </a>
     </motion.div>
