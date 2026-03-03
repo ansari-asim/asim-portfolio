@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { ReactTyped as Typed } from "react-typed";
 
 function Navbar() {
   return (
@@ -8,7 +9,19 @@ function Navbar() {
       <div className="brand-block">
         <div className="brand-name">Asim Ansari</div>
         <div className="brand-role">
-          Edge AI Engineer · NVIDIA Jetson · MLOps · Real-Time AI Deployment · TensorRT · OpenCV · PyTorch
+          <Typed
+            strings={[
+              "DeepStream",
+              "TensorRT",
+              "YOLO Optimization",
+              "NVIDIA Jetson Deployment",
+              "Docker & MLOps",
+            ]}
+            typeSpeed={60}
+            backSpeed={40}
+            loop
+            showCursor
+          />
         </div>
       </div>
 

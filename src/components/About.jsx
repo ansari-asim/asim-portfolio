@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ReactTyped } from "react-typed";
+import { ReactTyped as Typed } from "react-typed";
 
 function About() {
   return (
@@ -17,7 +17,7 @@ function About() {
       <h1 className="about-title">Asim Ansari</h1>
 
       <motion.div layout className="typing">
-        <ReactTyped
+        <Typed
           strings={[
             "AI Solutions Engineer.",
             "Expert in DeepStream, TensorRT and Edge AI deployment.",
