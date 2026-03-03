@@ -210,6 +210,10 @@ body {
 
 @media (max-width: 768px) {
 
+  .main-container {
+    padding-top: 220px;
+  }
+
   .about-card {
     padding: 40px;
   }
