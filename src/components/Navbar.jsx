@@ -17,11 +17,15 @@ function Navbar() {
           <div className="brand-role">
             <Typed
               strings={[
-                "DeepStream",
+                "Nvidia DeepStream",
+                "Gstreamer",
+                "Linux & Jetpack",
                 "TensorRT",
-                "YOLO Optimization",
-                "NVIDIA Jetson Deployment",
-                "Docker & MLOps",
+                "Pytorch",   
+                "YOLO & OpenCV",
+                "NVIDIA Jetson Edge",
+                "Docker",
+                "Git & CI/CD"
               ]}
               typeSpeed={60}
               backSpeed={40}

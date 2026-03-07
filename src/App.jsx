@@ -1,8 +1,11 @@
 
 
+import { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
+import LoadingScreen from "./components/LoadingScreen";
+import MouseTrail from "./components/MouseTrail";
 import Navbar from "./components/Navbar";
 import MatrixBackground from "./components/MatrixBackground";
 import About from "./components/About";
@@ -13,27 +16,42 @@ import ExperiencePage from "./pages/ExperiencePage";
 import ContactPage from "./pages/ContactPage";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 3500);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
-      <MatrixBackground />
-      <Navbar />
+      <AnimatePresence>
+        {isLoading && <LoadingScreen key="loading" />}
+      </AnimatePresence>
 
-      <div className="main-container">
+      {!isLoading && (
+        <>
+          <MouseTrail />
+          <MatrixBackground />
+          <Navbar />
 
-        <About />
+          <div className="main-container">
 
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/skills" element={<PageWrapper><SkillsPage /></PageWrapper>} />
-            <Route path="/projects" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
-            <Route path="/experience" element={<PageWrapper><ExperiencePage /></PageWrapper>} />
-            <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
-          </Routes>
-        </AnimatePresence>
+            <About />
 
-      </div>
+            <AnimatePresence mode="wait">
+              <Routes location={location} key={location.pathname}>
+                <Route path="/skills" element={<PageWrapper><SkillsPage /></PageWrapper>} />
+                <Route path="/projects" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
+                <Route path="/experience" element={<PageWrapper><ExperiencePage /></PageWrapper>} />
+                <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
+              </Routes>
+            </AnimatePresence>
+
+          </div>
+        </>
+      )}
     </>
   );
 }

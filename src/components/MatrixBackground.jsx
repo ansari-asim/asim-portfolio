@@ -26,11 +26,11 @@ function MatrixBackground() {
 
     function draw() {
       // Dark fade overlay (makes it smooth and dim)
-      ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
+      ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Subtle green color
-      ctx.fillStyle = "rgba(0, 255, 120, 0.25)";
+      // Visible green matrix color
+      ctx.fillStyle = "rgba(144, 238, 144, 0.5)";
       ctx.font = fontSize + "px monospace";
 
       for (let i = 0; i < drops.length; i++) {
