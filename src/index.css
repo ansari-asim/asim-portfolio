@@ -942,26 +942,26 @@ html,
 
 @media (max-width: 1100px) {
   .split-layout {
-    height: auto;
-    grid-template-columns: 1fr;
+    height: 100vh;
+    grid-template-columns: minmax(230px, 32%) minmax(0, 68%);
     gap: 18px;
-    padding: 116px 16px 40px;
+    padding: 106px 2.5% 20px;
   }
 
   .split-layout.detail-mode {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(230px, 32%) minmax(0, 68%);
     gap: 18px;
   }
 
   .split-left,
   .split-layout.home-mode .split-left {
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
   }
 
   .split-right {
-    overflow: visible;
-    padding-right: 0;
+    overflow-y: scroll;
+    padding-right: 6px;
   }
 
   .about-card.compact,
@@ -969,6 +969,14 @@ html,
   .split-page-card {
     width: 100%;
     max-width: 100%;
+  }
+
+  .about-card.compact {
+    padding: 28px 24px;
+  }
+
+  .about-card.compact .about-title {
+    font-size: clamp(30px, 3.2vw, 36px);
   }
 }
 
