@@ -941,12 +941,17 @@ html,
 }
 
 @media (max-width: 1100px) {
+  body {
+    overflow-y: auto;
+  }
+
   .split-layout {
-    height: 100vh;
+    height: auto;
+    min-height: calc(100dvh - 20px);
     grid-template-columns: clamp(300px, 36vw, 400px) minmax(0, 1fr);
     gap: 18px;
     padding: 106px 2.5% 20px;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .split-layout.detail-mode {
@@ -964,12 +969,10 @@ html,
 
   .split-right {
     min-height: 0;
-    height: calc(100vh - 126px);
-    max-height: calc(100vh - 126px);
-    overflow-y: scroll;
+    height: auto;
+    max-height: none;
+    overflow-y: visible;
     padding-right: 6px;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
   }
 
   .about-card.compact,
