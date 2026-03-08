@@ -103,47 +103,60 @@ function ProjectsPage() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.1 }
+      transition: { staggerChildren: 0.1, delayChildren: 0.12 }
     }
   };
 
   const projectVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
+    hidden: { opacity: 0, y: 26 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.58, ease: "easeOut" } }
+  };
+
+  const projectContentVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.08, delayChildren: 0.06 }
+    }
+  };
+
+  const projectContentItem = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } }
   };
 
   return (
-    <section className="page-wrapper">
-      <div className="page-card">
-        <h2 className="section-title">Projects</h2>
-        
-        <motion.div 
-          className="projects-list"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {projects.map((project, idx) => (
-            <motion.div 
-              key={idx} 
-              className="project-item"
-              variants={projectVariants}
-              whileHover={{ x: 5, backgroundColor: "rgba(144, 238, 144, 0.08)" }}
-            >
-              <div className="project-header">
+    <>
+      <h2 className="section-title">Projects</h2>
+
+      <motion.div
+        className="projects-list"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {projects.map((project, idx) => (
+          <motion.div
+            key={idx}
+            className="project-item"
+            variants={projectVariants}
+            whileHover={{ x: 5, backgroundColor: "rgba(144, 238, 144, 0.08)" }}
+          >
+            <motion.div variants={projectContentVariants}>
+              <motion.div className="project-header" variants={projectContentItem}>
                 <h3 className="project-title">{project.title}</h3>
-              </div>
-              <p className="project-description">{project.description}</p>
-              <div className="project-tech">
+              </motion.div>
+              <motion.p className="project-description" variants={projectContentItem}>{project.description}</motion.p>
+              <motion.div className="project-tech" variants={projectContentItem}>
                 {project.tech.map((t, i) => (
-                  <span key={i} className="tech-badge">{t}</span>
+                  <motion.span key={i} className="tech-badge" variants={projectContentItem}>{t}</motion.span>
                 ))}
-              </div>
+              </motion.div>
             </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+          </motion.div>
+        ))}
+      </motion.div>
+    </>
   );
 }
 

@@ -1,16 +1,11 @@
 import { motion } from "framer-motion";
 import { ReactTyped as Typed } from "react-typed";
-import InteractiveAvatar from "./InteractiveAvatar";
 
-function About() {
-  const imageVariants = {
-    hidden: { scale: 0.8, opacity: 0 },
-    visible: { 
-      scale: 1, 
-      opacity: 1,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
-  };
+function About({ compact = false }) {
+  const profileSummary = [
+    "I design and deploy production-grade AI and computer vision systems with a focus on performance, reliability, and maintainability.",
+    "My work includes edge AI pipelines on NVIDIA Jetson, DeepStream-based analytics, and MLOps-driven deployment workflows across Linux and containerized environments."
+  ];
 
   const textVariants = {
     hidden: { opacity: 0, y: 10 },
@@ -23,28 +18,24 @@ function About() {
 
   return (
     <motion.div
-      className="about-card"
+      className={`about-card ${compact ? "compact" : ""}`}
       layout
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ type: "spring", stiffness: 120, damping: 18 }}
+      transition={{ type: "spring", stiffness: 120, damping: 18, layout: { duration: 0.3 } }}
     >
-      <motion.div variants={imageVariants} initial="hidden" animate="visible" className="avatar-wrapper">
-        <InteractiveAvatar />
-      </motion.div>
-
       <motion.h1 className="about-title" variants={textVariants} initial="hidden" animate="visible">
         Asim Ansari
       </motion.h1>
 
-      <motion.div layout className="typing" variants={textVariants} initial="hidden" animate="visible">
+      <motion.div className="typing" layout variants={textVariants} initial="hidden" animate="visible">
         <Typed
           strings={[
             "AI Solutions Engineer",
-            "I build Computer Vision based Solution",
-            "Building DeepStream video analytics on NVIDIA Jetson",
-            "Love working with MLOps for AI deployment",
-            "Turning ML models into real-world edge AI solutions"
+            "Building computer vision solutions",
+            "Developing DeepStream analytics on NVIDIA Jetson",
+            "MLOps for reliable AI deployment",
+            "Turning ML models into real-world edge AI products"
           ]}
           typeSpeed={45}
           backSpeed={45}
@@ -53,12 +44,19 @@ function About() {
       </motion.div>
 
       <motion.p className="about-subtitle" variants={textVariants} initial="hidden" animate="visible">
-        Specializing in real-time AI deployment on edge devices
+        Edge AI • Computer Vision • MLOps
       </motion.p>
+
+      <motion.div className="about-description" variants={textVariants} initial="hidden" animate="visible">
+        {profileSummary.map((line) => (
+          <p key={line}>{line}</p>
+        ))}
+      </motion.div>
 
       <motion.a 
         href={import.meta.env.BASE_URL + 'resume.pdf'} 
         target="_blank"
+        rel="noreferrer"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >

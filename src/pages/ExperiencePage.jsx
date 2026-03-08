@@ -76,51 +76,62 @@ function ExperiencePage() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.1 }
+      transition: { staggerChildren: 0.1, delayChildren: 0.12 }
     }
   };
 
   const expVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
+    hidden: { opacity: 0, y: 26 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.58, ease: "easeOut" } }
+  };
+
+  const expContentVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.07, delayChildren: 0.05 }
+    }
+  };
+
+  const expContentItem = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } }
   };
 
   return (
-    <section className="page-wrapper">
-      <div className="page-card">
-        <h2 className="section-title">Experience</h2>
-        
-        <motion.div 
-          className="experience-timeline"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {experiences.map((exp, idx) => (
-            <motion.div 
-              key={idx} 
-              className="experience-item"
-              variants={expVariants}
-            >
-              <div className="exp-marker"></div>
-              <div className="exp-content">
-                <div className="exp-header">
-                  <h3 className="exp-role">{exp.role}</h3>
-                  <span className="exp-duration">{exp.duration}</span>
-                </div>
-                <p className="exp-company">{exp.company}</p>
-                <p className="exp-description">{exp.description}</p>
-                <ul className="exp-achievements">
-                  {exp.achievements.map((achievement, i) => (
-                    <li key={i}>{achievement}</li>
-                  ))}
-                </ul>
-              </div>
+    <>
+      <h2 className="section-title">Experience</h2>
+
+      <motion.div
+        className="experience-timeline"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {experiences.map((exp, idx) => (
+          <motion.div
+            key={idx}
+            className="experience-item"
+            variants={expVariants}
+          >
+            <div className="exp-marker"></div>
+            <motion.div className="exp-content" variants={expContentVariants}>
+              <motion.div className="exp-header" variants={expContentItem}>
+                <h3 className="exp-role">{exp.role}</h3>
+                <span className="exp-duration">{exp.duration}</span>
+              </motion.div>
+              <motion.p className="exp-company" variants={expContentItem}>{exp.company}</motion.p>
+              <motion.p className="exp-description" variants={expContentItem}>{exp.description}</motion.p>
+              <motion.ul className="exp-achievements" variants={expContentItem}>
+                {exp.achievements.map((achievement, i) => (
+                  <motion.li key={i} variants={expContentItem}>{achievement}</motion.li>
+                ))}
+              </motion.ul>
             </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+          </motion.div>
+        ))}
+      </motion.div>
+    </>
   );
 }
 

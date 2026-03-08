@@ -48,6 +48,16 @@ function MouseTrail() {
       }
     };
 
+    const handleTouchMove = (e) => {
+      const touch = e.touches?.[0];
+      if (!touch) return;
+
+      mouseX = touch.clientX;
+      mouseY = touch.clientY;
+
+      particles.push(new Particle(mouseX, mouseY));
+    };
+
     const animate = () => {
       ctx.globalAlpha = 0.1;
       ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
@@ -67,6 +77,8 @@ function MouseTrail() {
     };
 
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchstart", handleTouchMove, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
     animate();
 
     const handleResize = () => {
@@ -78,6 +90,8 @@ function MouseTrail() {
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchstart", handleTouchMove);
+      window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("resize", handleResize);
     };
   }, []);
