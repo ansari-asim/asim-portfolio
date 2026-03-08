@@ -943,25 +943,33 @@ html,
 @media (max-width: 1100px) {
   .split-layout {
     height: 100vh;
-    grid-template-columns: minmax(230px, 32%) minmax(0, 68%);
+    grid-template-columns: clamp(300px, 36vw, 400px) minmax(0, 1fr);
     gap: 18px;
     padding: 106px 2.5% 20px;
+    overflow: hidden;
   }
 
   .split-layout.detail-mode {
-    grid-template-columns: minmax(230px, 32%) minmax(0, 68%);
+    grid-template-columns: clamp(300px, 36vw, 400px) minmax(0, 1fr);
     gap: 18px;
   }
 
   .split-left,
   .split-layout.home-mode .split-left {
+    width: 100%;
+    min-height: 0;
     justify-content: center;
     align-items: center;
   }
 
   .split-right {
+    min-height: 0;
+    height: calc(100vh - 126px);
+    max-height: calc(100vh - 126px);
     overflow-y: scroll;
     padding-right: 6px;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
 
   .about-card.compact,
