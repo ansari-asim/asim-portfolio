@@ -940,6 +940,38 @@ html,
   to { opacity: 1; }
 }
 
+@media (max-width: 1100px) {
+  .split-layout {
+    height: auto;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 116px 16px 40px;
+  }
+
+  .split-layout.detail-mode {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .split-left,
+  .split-layout.home-mode .split-left {
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .split-right {
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .about-card.compact,
+  .page-card,
+  .split-page-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 /* stagger kid animation via nth-child selectors */
 .mobile-sidebar .sidebar-item {
   opacity: 0;

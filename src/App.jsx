@@ -18,6 +18,7 @@ import ContactPage from "./pages/ContactPage";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768);
+  const [isNarrowViewport, setIsNarrowViewport] = useState(() => window.innerWidth <= 1100);
   const location = useLocation();
   const isHome = location.pathname === "/";
 
@@ -31,6 +32,18 @@ function App() {
     const handleViewportChange = (event) => setIsMobile(event.matches);
 
     setIsMobile(mediaQuery.matches);
+    mediaQuery.addEventListener("change", handleViewportChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleViewportChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 1100px)");
+    const handleViewportChange = (event) => setIsNarrowViewport(event.matches);
+
+    setIsNarrowViewport(mediaQuery.matches);
     mediaQuery.addEventListener("change", handleViewportChange);
 
     return () => {
@@ -54,7 +67,7 @@ function App() {
             <motion.div
               className="split-left"
               initial={false}
-              animate={{ x: isHome || isMobile ? 0 : -48, opacity: 1 }}
+              animate={{ x: isHome || isMobile || isNarrowViewport ? 0 : -48, opacity: 1 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
               <About compact={!isHome} />
