@@ -24,9 +24,19 @@ function About({ compact = false }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 120, damping: 18, layout: { duration: 0.3 } }}
     >
-      <motion.h1 className="about-title" variants={textVariants} initial="hidden" animate="visible">
-        Asim Ansari
-      </motion.h1>
+      <motion.div className="about-header" variants={textVariants} initial="hidden" animate="visible">
+        <div className="about-avatar-wrap">
+          <img
+            className="about-avatar"
+            src={import.meta.env.BASE_URL + "profile.jpg"}
+            alt="Asim Ansari profile"
+          />
+        </div>
+
+        <motion.h1 className="about-title" variants={textVariants} initial="hidden" animate="visible">
+          Asim Ansari
+        </motion.h1>
+      </motion.div>
 
       <motion.div className="typing" layout variants={textVariants} initial="hidden" animate="visible">
         <Typed
@@ -44,7 +54,7 @@ function About({ compact = false }) {
       </motion.div>
 
       <motion.p className="about-subtitle" variants={textVariants} initial="hidden" animate="visible">
-        Edge AI • Computer Vision • MLOps
+        NVIDIA Jetson • Computer Vision • MLOps
       </motion.p>
 
       <motion.div className="about-description" variants={textVariants} initial="hidden" animate="visible">
