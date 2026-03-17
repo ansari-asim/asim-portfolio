@@ -14,6 +14,7 @@ import SkillsPage from "./pages/SkillsPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ExperiencePage from "./pages/ExperiencePage";
 import ContactPage from "./pages/ContactPage";
+import CertificatesPage from "./pages/CertificatesPage";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -83,6 +84,7 @@ function App() {
                     <Route path="/skills" element={<PageWrapper><SkillsPage /></PageWrapper>} />
                     <Route path="/projects" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
                     <Route path="/experience" element={<PageWrapper><ExperiencePage /></PageWrapper>} />
+                    <Route path="/certificates" element={<PageWrapper><CertificatesPage /></PageWrapper>} />
                     <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
                   </Routes>
                 </AnimatePresence>

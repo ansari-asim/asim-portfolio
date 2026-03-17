@@ -1,0 +1,20 @@
+<svg width="320" height="120" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI Variant logo">
+  <rect width="320" height="120" fill="#ffffff"/>
+  <defs>
+    <linearGradient id="aGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3ec7f5"/>
+      <stop offset="100%" stop-color="#3e63c5"/>
+    </linearGradient>
+    <linearGradient id="iGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f36f7d"/>
+      <stop offset="100%" stop-color="#b0397f"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(42,28)">
+    <path d="M20 54C9 54 0 45 0 34S9 14 20 14c8 0 15 5 18 12V16h13v52H38V50c-3 3-10 4-18 4Zm3-28a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z" fill="url(#aGrad)"/>
+    <rect x="63" y="14" width="13" height="40" rx="6" fill="url(#iGrad)"/>
+    <circle cx="69.5" cy="8" r="5" fill="url(#iGrad)"/>
+    <path d="M85 54V14h12l1 5c3-4 7-6 13-6 6 0 11 2 14 7 4-5 9-7 16-7 13 0 21 9 21 23v18h-13V37c0-7-4-12-10-12-6 0-11 5-11 12v17h-13V37c0-7-4-12-10-12-6 0-11 5-11 12v17H85Z" fill="#252b67"/>
+    <path d="M171 54V14h13v4c3-3 7-5 13-5 12 0 21 10 21 21s-9 21-21 21c-6 0-10-2-13-5v4h-13Zm23-11c6 0 11-4 11-10s-5-10-11-10-11 4-11 10 5 10 11 10Z" fill="#252b67"/>
+  </g>
+</svg>

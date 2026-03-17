@@ -734,6 +734,75 @@ html,
 }
 
 /* ===================== */
+/* CERTIFICATES */
+/* ===================== */
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.certificate-card {
+  display: block;
+  background: rgba(144, 238, 144, 0.05);
+  border: 1px solid rgba(144, 238, 144, 0.15);
+  border-radius: 15px;
+  padding: 22px;
+  transition: all 0.3s ease;
+}
+
+.certificate-card:hover {
+  background: rgba(144, 238, 144, 0.1);
+  border-color: rgba(144, 238, 144, 0.4);
+  box-shadow: 0 8px 24px rgba(144, 238, 144, 0.15);
+}
+
+.certificate-logo-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(144, 238, 144, 0.08);
+  border: 1px solid rgba(144, 238, 144, 0.25);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.certificate-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+.certificate-title {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.certificate-issuer {
+  color: #90ee90;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.certificate-cta {
+  color: #b0f5b0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ===================== */
 /* PROJECTS LIST */
 /* ===================== */
 
@@ -1001,6 +1070,7 @@ html,
 .mobile-sidebar .sidebar-item:nth-child(3) { animation-delay: 0.15s; }
 .mobile-sidebar .sidebar-item:nth-child(4) { animation-delay: 0.2s; }
 .mobile-sidebar .sidebar-item:nth-child(5) { animation-delay: 0.25s; }
+.mobile-sidebar .sidebar-item:nth-child(6) { animation-delay: 0.3s; }
 
 
 @media (max-width: 768px) {
@@ -1092,6 +1162,10 @@ html,
   }
 
   .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .certificates-grid {
     grid-template-columns: 1fr;
   }
 

@@ -75,6 +75,15 @@ function Navbar() {
           </NavLink>
 
           <NavLink
+            to="/certificates"
+            className={({ isActive }) =>
+              isActive ? "nav-item active" : "nav-item"
+            }
+          >
+            Certificates
+          </NavLink>
+
+          <NavLink
             to="/contact"
             className={({ isActive }) =>
               isActive ? "nav-item active" : "nav-item"
@@ -138,6 +147,16 @@ function Navbar() {
               }
             >
               Experience
+            </NavLink>
+
+            <NavLink
+              to="/certificates"
+              onClick={closeSidebar}
+              className={({ isActive }) =>
+                isActive ? "sidebar-item active" : "sidebar-item"
+              }
+            >
+              Certificates
             </NavLink>
 
             <NavLink
