@@ -52,9 +52,9 @@ function ContactPage() {
     },
     {
       icon: iconMap.blog,
-      title: "Blog",
+      title: "AI Hardware Docs",
       value: "AI Hardware Docs",
-      link: "https://ansari-asim.github.io/GPU-Documentation/GPU/",
+      link: "https://ansari-asim.github.io/GPU-Documentation/",
       description: "Share your blog and technical write-ups here"
     }
   ];
