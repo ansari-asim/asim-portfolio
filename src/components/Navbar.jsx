@@ -4,6 +4,7 @@ import { ReactTyped as Typed } from "react-typed";
 
 function Navbar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const neuralDepthUrl = "https://ansari-asim.github.io/GPU-Documentation/";
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
   const closeSidebar = () => setSidebarOpen(false);
@@ -83,6 +84,15 @@ function Navbar() {
             Certificates
           </NavLink>
 
+          <a
+            href={neuralDepthUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-item"
+          >
+            Neural Depth
+          </a>
+
           <NavLink
             to="/contact"
             className={({ isActive }) =>
@@ -158,6 +168,16 @@ function Navbar() {
             >
               Certificates
             </NavLink>
+
+            <a
+              href={neuralDepthUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeSidebar}
+              className="sidebar-item"
+            >
+              Neural Depth
+            </a>
 
             <NavLink
               to="/contact"

@@ -18,12 +18,6 @@ const iconMap = {
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M12 3.1a8.95 8.95 0 0 0-2.83 17.45c.45.08.61-.2.61-.43v-1.7c-2.5.55-3.03-1.07-3.03-1.07-.41-1.05-1-1.33-1-1.33-.81-.55.06-.54.06-.54.9.06 1.38.93 1.38.93.8 1.37 2.1.97 2.6.74.08-.59.31-.97.56-1.2-2-.23-4.1-1-4.1-4.46 0-.99.35-1.8.93-2.43-.09-.23-.4-1.16.09-2.41 0 0 .76-.24 2.48.93a8.65 8.65 0 0 1 4.52 0c1.72-1.17 2.48-.93 2.48-.93.49 1.25.18 2.18.09 2.41.58.63.93 1.44.93 2.43 0 3.47-2.11 4.23-4.13 4.45.33.28.61.84.61 1.7v2.52c0 .24.16.52.62.43A8.95 8.95 0 0 0 12 3.1Z" fill="currentColor" />
     </svg>
-  ),
-  blog: (
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M5.2 5.2h13.6a1.6 1.6 0 0 1 1.6 1.6v10.4a1.6 1.6 0 0 1-1.6 1.6H5.2a1.6 1.6 0 0 1-1.6-1.6V6.8a1.6 1.6 0 0 1 1.6-1.6Z" fill="none" stroke="currentColor" strokeWidth="1.7" />
-      <path d="M7.4 9.2h9.2M7.4 12h6.8M7.4 14.8h4.4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-    </svg>
   )
 };
 
@@ -49,13 +43,6 @@ function ContactPage() {
       value: "ansari-asim",
       link: "https://github.com/ansari-asim",
       description: "Check out my projects and contributions"
-    },
-    {
-      icon: iconMap.blog,
-      title: "AI Hardware Docs",
-      value: "AI Hardware Docs",
-      link: "https://ansari-asim.github.io/GPU-Documentation/",
-      description: "Share your blog and technical write-ups here"
     }
   ];
 

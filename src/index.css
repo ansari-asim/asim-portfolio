@@ -1014,6 +1014,37 @@ html,
     overflow-y: auto;
   }
 
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .sidebar-overlay {
+    display: block;
+  }
+
+  .mobile-sidebar {
+    display: flex;
+    animation: fadeInSidebar 0.3s ease-out;
+  }
+
+  .navbar {
+    padding: 0 4%;
+  }
+
+  .brand-block {
+    flex: 1;
+    min-width: 0;
+    max-width: 68%;
+  }
+
+  .brand-role {
+    max-width: 100%;
+  }
+
   .split-layout {
     height: auto;
     min-height: calc(100dvh - 20px);
@@ -1071,6 +1102,7 @@ html,
 .mobile-sidebar .sidebar-item:nth-child(4) { animation-delay: 0.2s; }
 .mobile-sidebar .sidebar-item:nth-child(5) { animation-delay: 0.25s; }
 .mobile-sidebar .sidebar-item:nth-child(6) { animation-delay: 0.3s; }
+.mobile-sidebar .sidebar-item:nth-child(7) { animation-delay: 0.35s; }
 
 
 @media (max-width: 768px) {
