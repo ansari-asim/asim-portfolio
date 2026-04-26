@@ -60,7 +60,7 @@ function Navbar() {
           <NavLink
             to="/projects"
             className={({ isActive }) =>
-              isActive ? "nav-item active" : "nav-item"
+              isActive ? "nav-item projects-nav-item active" : "nav-item projects-nav-item"
             }
           >
             Projects
