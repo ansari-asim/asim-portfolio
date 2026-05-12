@@ -73,6 +73,45 @@ function ProjectsPage() {
         "Self-Hosted AI",
         "Code Review"
       ]
+    },
+    {
+      title: "GStreamer RTSP Multi-Stream Server - Edge Video Streaming Platform",
+      repository: "https://github.com/ansari-asim/Gst-RTSP-Server.git",
+      summary:
+        "Production-grade RTSP streaming server that transforms local MP4 files into accessible RTSP camera feeds with automatic hardware acceleration, multi-stream support, and fallback software pipeline handling for Jetson and Linux environments.",
+      problem:
+        "Organizations deploying edge AI and video surveillance systems on embedded platforms (Jetson) or Linux servers need a reliable, configurable RTSP streaming solution that supports multiple concurrent video streams with minimal latency, automatically leverages hardware acceleration when available, and gracefully degrades to software encoding when hardware is unavailable or exhausted.",
+      solution:
+        "Engineered a production-grade Python RTSP server using GStreamer and GstRtspServer that intelligently manages hardware and software encoding pipelines. The system auto-detects available NVIDIA/Jetson hardware elements and seamlessly falls back to software alternatives, supporting multiple concurrent streams with configurable resolution, framerate, bitrate, and authentication.",
+      architecture:
+        "The system launches a Python GStreamer application that loads MP4 file paths and configuration from config.json, probes available GStreamer elements to determine hardware/software capability, instantiates separate RTSP media factories for each video file, spawns staggered file readers to prevent simultaneous hardware decoder initialization, selects encoders based on strategy, and exposes an authenticated RTSP server on configured host and port for client delivery.",
+      features: [
+        "Multi-Stream RTSP Broadcasting with automatic endpoint generation (/cam1, /cam2, /cam3)",
+        "Hardware/Software Hybrid Encoding with auto-detection and graceful fallback",
+        "RTSP Basic Authentication with secure URL encoding and credential support",
+        "Fine-Grained Configuration including resolution, framerate, bitrate, and encoder selection",
+        "Loop Support for continuous video cycling in surveillance scenarios",
+        "Low-Latency Mode with specialized encoder settings for time-sensitive applications",
+        "Built-in Diagnostics with video compatibility checker for pipeline troubleshooting"
+      ],
+      futureImprovements: [
+        "Advanced load balancing across multiple server instances",
+        "Stream transcoding profiles for adaptive bitrate scenarios",
+        "Integration with monitoring systems (Prometheus, Grafana)",
+        "Support for RTMP and HLS streaming protocols alongside RTSP",
+        "Dynamic stream creation from client requests",
+        "Hardware encoder load monitoring and intelligent distribution"
+      ],
+      tech: [
+        "Python",
+        "GStreamer",
+        "GstRtspServer",
+        "NVIDIA Jetson",
+        "H.264 Encoding",
+        "RTSP Streaming",
+        "Hardware Acceleration",
+        "Edge Computing"
+      ]
     }
   ];
 
